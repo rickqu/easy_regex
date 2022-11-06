@@ -23,5 +23,7 @@ class CharacterClass(RegexTerm):
             return '\.'
         elif self._char_class == SupportedCharacterClass.DIGIT:
             return '\d'
+        elif self._char_class == SupportedCharacterClass.WORD:
+            return '\w'
         else:
             raise TypeError('Unsupported character class')

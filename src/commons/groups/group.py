@@ -27,6 +27,15 @@ class Group(RegexTerm):
         elif call_type == Group.GroupType.EXACT_REPEAT_AND_NAME:
             return f'(?<{self.__second}>{self.__term.render()}{{{self.__first}}})'
         elif call_type == Group.GroupType.BETWEEN_REPEAT:
+            # This means we should just use optional
+            if self.__first == 0 and self.__second == 1:
+                return f'(?:{self.__term.render()})?'
+            # Means we can use "at least 1"
+            if self.__first == 1 and self.__second == NO_LIMIT:
+                return f'(?:{self.__term.render()})+'
+            # Zero or more
+            if self.__first == 0 and self.__second == NO_LIMIT:
+                return f'(?:{self.__term.render()})*'
             if self.__second == NO_LIMIT:
                 upper_limit = ""
             else:
