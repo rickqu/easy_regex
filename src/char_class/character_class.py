@@ -12,6 +12,7 @@ class SupportedCharacterClass(Enum):
     WHITESPACE = 5
     NOT_WHITESPACE = 6
     WORD = 7
+    ANY = 8
 
 class CharacterClass(RegexTerm):
     def __init__(self, char_class: SupportedCharacterClass):
@@ -25,5 +26,9 @@ class CharacterClass(RegexTerm):
             return '\d'
         elif self._char_class == SupportedCharacterClass.WORD:
             return '\w'
+        elif self._char_class == SupportedCharacterClass.WHITESPACE:
+            return '\s'
+        elif self._char_class == SupportedCharacterClass.ANY:
+            return '.'
         else:
             raise TypeError('Unsupported character class')
