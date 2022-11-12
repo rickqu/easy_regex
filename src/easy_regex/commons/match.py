@@ -1,6 +1,6 @@
 from typing import Final
-from commons.regex_term import RegexTerm
-from commons.supported_regex_ops import RegexOp
+from easy_regex.commons.regex_term import RegexTerm
+from easy_regex.commons.supported_regex_ops import RegexOp
 
 class Match(RegexTerm):
     __reserved_chars: Final = '.^$*+?()[{\|}]/'

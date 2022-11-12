@@ -1,4 +1,4 @@
-from commons import RegexTerm
+from easy_regex.commons import RegexTerm
 
 class Brackets(RegexTerm):
     def __init__(self, chars: str, match: bool):

@@ -1,4 +1,4 @@
-from commons import RegexTerm, Match
+from easy_regex.commons import RegexTerm, Match
 
 class Or(RegexTerm):
     def __init__(self, *args):

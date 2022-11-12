@@ -1,0 +1,23 @@
+[build-system]
+requires      = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "easy_regex"
+version = "0.1.0"
+description = "Write Regex in a way that looks like code"
+readme = "README.md"
+authors = [{ name = "rickqu" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["regex"]
+dependencies = [
+]
+requires-python = ">=3.8"
+
+[project.urls]
+Homepage = "https://github.com/rickqu/easy_regex"

@@ -1,8 +1,8 @@
 from typing import List
-from commons.groups.group import Group
-from commons.match import Match
-from commons import RegexTerm
-from commons.supported_regex_ops import RegexOp
+from easy_regex.commons.groups.group import Group
+from easy_regex.commons.match import Match
+from easy_regex.commons import RegexTerm
+from easy_regex.commons.supported_regex_ops import RegexOp
 
 class CompoundExpression(RegexTerm):
     def __init__(self, beginning: RegexTerm = None):

@@ -1,5 +1,5 @@
-from .brackets import Brackets
-from commons import CompoundExpression
+from easy_regex.brackets import Brackets
+from easy_regex.commons import CompoundExpression
 
 def CHARS(chars: str):
     return CompoundExpression(Brackets(chars, True))

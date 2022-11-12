@@ -1,6 +1,6 @@
-from anchors import Anchors
-from anchors.anchors import SupportedAnchors
-from commons import CompoundExpression
+from easy_regex.anchors import Anchors
+from easy_regex.anchors import SupportedAnchors
+from easy_regex.commons import CompoundExpression
 
 def START_WITH(term: str) -> Anchors:
     return CompoundExpression(Anchors(SupportedAnchors.START_WITH, term))

@@ -1,7 +1,7 @@
 from enum import Enum
 
-from commons import RegexOp
-from commons import RegexTerm
+from easy_regex.commons import RegexOp
+from easy_regex.commons import RegexTerm
 
 class SupportedCharacterClass(Enum):
     CHAR = 0

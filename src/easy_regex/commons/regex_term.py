@@ -1,4 +1,4 @@
-from commons.supported_regex_ops import RegexOp
+from easy_regex.commons.supported_regex_ops import RegexOp
 
 class RegexTerm():
     def get_type(self) -> RegexOp:

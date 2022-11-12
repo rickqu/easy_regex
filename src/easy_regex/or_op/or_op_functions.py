@@ -1,4 +1,4 @@
-from commons import CompoundExpression
+from easy_regex.commons import CompoundExpression
 from .or_op import Or
 
 def OR(*args):

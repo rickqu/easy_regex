@@ -1,4 +1,4 @@
-from commons import RegexTerm, NO_LIMIT
+from easy_regex.commons import RegexTerm, NO_LIMIT
 from enum import Enum
 
 class Group(RegexTerm):
