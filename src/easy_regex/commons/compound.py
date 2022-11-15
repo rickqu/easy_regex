@@ -3,6 +3,7 @@ from easy_regex.commons.groups.group import Group
 from easy_regex.commons.match import Match
 from easy_regex.commons import RegexTerm
 from easy_regex.commons.supported_regex_ops import RegexOp
+from easy_regex.look_ahead_behind.look_ahead import LookAheadBehind
 
 class CompoundExpression(RegexTerm):
     def __init__(self, beginning: RegexTerm = None):
@@ -39,6 +40,22 @@ class CompoundExpression(RegexTerm):
 
     def get_children(self) -> List[RegexTerm]:
         return self._children
+    
+    def before(self, term):
+        other_term = self.__parse_term(term)
+        return CompoundExpression(LookAheadBehind(self, other_term, LookAheadBehind.LookAheadBehindType.AHEAD_MATCH))
+    
+    def after(self, term):
+        other_term = self.__parse_term(term)
+        return CompoundExpression(LookAheadBehind(self, other_term, LookAheadBehind.LookAheadBehindType.BEHIND_MATCH))
+
+    def __parse_term(self, term) -> RegexTerm:
+        if isinstance(term, str):
+            return CompoundExpression(Match(term))
+        elif isinstance(term, RegexTerm):
+            return term
+        else:
+            raise ValueError(f'Term {term} is not a RegexTerm or a string')
 
     def render(self)-> str:
         return ''.join([term.render() for term in self._children])
