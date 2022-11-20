@@ -13,7 +13,7 @@ class LookAheadBehind(RegexTerm):
         self.__other_term = other_term
         self.__look_ahead_behind_type = look_ahead_behind_type
 
-    def render(self, ) -> str:
+    def render(self) -> str:
         look_ahead_behind_str = self.__get_look_ahead_behind_str()
         if self.__look_ahead_behind_type == LookAheadBehind.LookAheadBehindType.AHEAD_MATCH \
             or self.__look_ahead_behind_type == LookAheadBehind.LookAheadBehindType.AHEAD_NOT_MATCH:
@@ -28,5 +28,5 @@ class LookAheadBehind(RegexTerm):
             return '!'
         elif self.__look_ahead_behind_type == LookAheadBehind.LookAheadBehindType.BEHIND_MATCH:
             return '<='
-        elif self.__look_ahead_behind_type == LookAheadBehind.LookAheadBehindType.AHEAD_MATCH:
+        elif self.__look_ahead_behind_type == LookAheadBehind.LookAheadBehindType.BEHIND_NOT_MATCH:
             return '<!'

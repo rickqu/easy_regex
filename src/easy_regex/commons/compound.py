@@ -1,4 +1,5 @@
 from typing import List
+from easy_regex.back_match.back_match import BackMatch
 from easy_regex.commons.groups.group import Group
 from easy_regex.commons.match import Match
 from easy_regex.commons import RegexTerm
@@ -48,6 +49,17 @@ class CompoundExpression(RegexTerm):
     def after(self, term):
         other_term = self.__parse_term(term)
         return CompoundExpression(LookAheadBehind(self, other_term, LookAheadBehind.LookAheadBehindType.BEHIND_MATCH))
+    
+    def not_before(self, term):
+        other_term = self.__parse_term(term)
+        return CompoundExpression(LookAheadBehind(self, other_term, LookAheadBehind.LookAheadBehindType.AHEAD_NOT_MATCH))
+    
+    def not_after(self, term):
+        other_term = self.__parse_term(term)
+        return CompoundExpression(LookAheadBehind(self, other_term, LookAheadBehind.LookAheadBehindType.BEHIND_NOT_MATCH))
+    
+    def back_match(self, num: int):
+        return CompoundExpression(BackMatch(self, num))
 
     def __parse_term(self, term) -> RegexTerm:
         if isinstance(term, str):
